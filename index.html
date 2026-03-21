@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Engineer Portfolio | Neo Green Tech</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Heroicons CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@heroicons/html@2.1.1/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neo-green': {
+                            DEFAULT: '#10b981',
+                            glow: '#34d399',
+                            dark: '#064e3b',
+                        },
+                        'dark-space': '#0f172a',
+                        'dark-card': '#1e293b',
+                    },
+                    boxShadow: {
+                        'neo-glow': '0 0 15px rgba(16, 185, 129, 0.4)',
+                        'neo-glow-lg': '0 0 25px rgba(16, 185, 129, 0.6)',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'glow-pulse': 'glowPulse 2s infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        glowPulse: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(16, 185, 129, 0.4)' },
+                            '50%': { boxShadow: '0 0 25px rgba(16, 185, 129, 0.7)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+        }
+        
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .neo-border {
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: border-color 0.3s ease;
+        }
+
+        .neo-border:hover {
+            border-color: #10b981;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+    </style>
+</head>
+<body class="text-slate-300 selection:bg-neo-green selection:text-dark-space">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-dark-space/80 backdrop-blur-md border-b border-slate-800">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-neo-green mono tracking-tighter hover:scale-105 transition-transform">
+                &lt;DE_DEV /&gt;
+            </a>
+            
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center space-x-8 mono text-sm font-bold">
+                <a href="#about" class="hover:text-neo-green transition-colors underline-offset-4 hover:underline">About</a>
+                <a href="#skills" class="hover:text-neo-green transition-colors underline-offset-4 hover:underline">Skills</a>
+                <a href="#experience" class="hover:text-neo-green transition-colors underline-offset-4 hover:underline">Experience</a>
+                <a href="#projects" class="hover:text-neo-green transition-colors underline-offset-4 hover:underline">Projects</a>
+                <div class="h-4 w-[1px] bg-slate-700"></div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://github.com/username" target="_blank" title="GitHub" class="p-2 bg-slate-800 rounded-lg hover:bg-neo-green hover:text-dark-space transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/username" target="_blank" title="LinkedIn" class="p-2 bg-slate-800 rounded-lg hover:bg-neo-green hover:text-dark-space transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden text-slate-300 hover:text-neo-green">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card border-b border-slate-700 px-6 py-4 flex flex-col space-y-4 mono text-sm">
+            <a href="#about" class="hover:text-neo-green">About</a>
+            <a href="#skills" class="hover:text-neo-green">Skills</a>
+            <a href="#experience" class="hover:text-neo-green">Experience</a>
+            <a href="#projects" class="hover:text-neo-green">Projects</a>
+            <div class="flex space-x-4 pt-2">
+                <a href="https://github.com/username" target="_blank" class="text-neo-green font-bold">GitHub</a>
+                <a href="https://linkedin.com/in/username" target="_blank" class="text-neo-green font-bold">LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-[80vh] flex items-center justify-center px-6">
+            <div class="max-w-4xl text-center">
+                <div class="inline-block px-3 py-1 mb-6 text-xs font-bold mono bg-neo-green/10 text-neo-green rounded-full border border-neo-green/20">
+                    AVAILABLE FOR NEW PROJECTS
+                </div>
+                <h1 class="text-6xl md:text-8xl font-extrabold text-white leading-[1.1] tracking-tight mb-6">
+                    Building the <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-green to-emerald-400">Future</span> of Data.
+                </h1>
+                <p class="text-lg md:text-2xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    I'm <span class="text-neo-green font-bold">First Last</span>, a Data Engineer specializing in scalable pipelines and robust infrastructure.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#projects" class="bg-neo-green text-dark-space font-bold py-4 px-10 rounded-lg hover:shadow-neo-glow transition-all active:scale-95">
+                        View Ecosystem
+                    </a>
+                    <a href="mailto:professionalemail@resumeworded.com" class="neo-border text-neo-green font-bold py-4 px-10 rounded-lg hover:bg-neo-green/5 transition-all">
+                        Initiate Connection
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-32 px-6 reveal">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-16">
+                    <div class="md:w-1/2">
+                        <h2 class="text-4xl font-bold text-white mb-8 mono">&lt;about_me /&gt;</h2>
+                        <p class="text-lg text-slate-400 mb-6 leading-relaxed">
+                            Data Engineer with five years of experience deploying and maintaining network infrastructures. Strong track record of accurately conducting system improvement and enhancing sales growth.
+                        </p>
+                        <p class="text-lg text-slate-400 leading-relaxed">
+                            My focus is on <span class="text-neo-green">ETL optimization</span> and <span class="text-neo-green">cloud-native architectures</span>. I thrive in high-stakes environments where data integrity is paramount.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 grid grid-cols-2 gap-4">
+                        <div class="bg-dark-card p-6 rounded-2xl border border-slate-800 hover:border-neo-green transition-all shadow-sm">
+                            <div class="text-3xl font-bold text-neo-green mb-1">5+</div>
+                            <div class="text-sm mono text-slate-500 uppercase">Years Exp</div>
+                        </div>
+                        <div class="bg-dark-card p-6 rounded-2xl border border-slate-800 hover:border-neo-green transition-all shadow-sm">
+                            <div class="text-3xl font-bold text-neo-green mb-1">50+</div>
+                            <div class="text-sm mono text-slate-500 uppercase">Pipelines</div>
+                        </div>
+                        <div class="bg-dark-card p-6 rounded-2xl border border-slate-800 hover:border-neo-green transition-all shadow-sm">
+                            <div class="text-3xl font-bold text-neo-green mb-1">99.9%</div>
+                            <div class="text-sm mono text-slate-500 uppercase">Uptime</div>
+                        </div>
+                        <div class="bg-dark-card p-6 rounded-2xl border border-slate-800 hover:border-neo-green transition-all shadow-sm">
+                            <div class="text-3xl font-bold text-neo-green mb-1">Cloud</div>
+                            <div class="text-sm mono text-slate-500 uppercase">Agnostic</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-32 px-6 bg-dark-space/50 reveal">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-white mb-16 text-center mono">CORE_STACK</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-dark-card p-8 rounded-3xl neo-border">
+                        <div class="w-12 h-12 bg-neo-green/10 flex items-center justify-center rounded-xl mb-6">
+                            <svg class="w-6 h-6 text-neo-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Data Engineering</h3>
+                        <ul class="space-y-3 text-slate-400 mono text-sm">
+                            <li>- Python / SQL</li>
+                            <li>- Google Analytics API</li>
+                            <li>- Salesforce API</li>
+                            <li>- ETL/ELT Design</li>
+                        </ul>
+                    </div>
+                    <div class="bg-dark-card p-8 rounded-3xl neo-border shadow-neo-glow">
+                        <div class="w-12 h-12 bg-neo-green/10 flex items-center justify-center rounded-xl mb-6">
+                            <svg class="w-6 h-6 text-neo-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Networking & Security</h3>
+                        <ul class="space-y-3 text-slate-400 mono text-sm">
+                            <li>- Networking Protocols</li>
+                            <li>- IP Address Structure</li>
+                            <li>- Routing Protocols</li>
+                            <li>- Network Security Systems</li>
+                        </ul>
+                    </div>
+                    <div class="bg-dark-card p-8 rounded-3xl neo-border">
+                        <div class="w-12 h-12 bg-neo-green/10 flex items-center justify-center rounded-xl mb-6">
+                            <svg class="w-6 h-6 text-neo-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Analytics & BI</h3>
+                        <ul class="space-y-3 text-slate-400 mono text-sm">
+                            <li>- Tableau</li>
+                            <li>- Excel Dashboards</li>
+                            <li>- Statistical Modeling</li>
+                            <li>- Data Visualization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-32 px-6 reveal">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-white mb-16 mono">&lt;professional_experience /&gt;</h2>
+                <div class="space-y-12 max-w-4xl">
+                    
+                    <div class="relative pl-8 border-l border-slate-800">
+                        <div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-neo-green shadow-neo-glow"></div>
+                        <div class="flex flex-col md:flex-row md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Data Engineer</h3>
+                                <p class="text-neo-green mono font-bold">Resume Worded, New York, NY</p>
+                            </div>
+                            <p class="text-slate-500 mono text-sm mt-1 md:mt-0">2020 – PRESENT</p>
+                        </div>
+                        <ul class="space-y-3 text-slate-400 list-disc list-inside">
+                            <li>Conducted security assessments and made recommendations for disaster recovery and network appliances.</li>
+                            <li>Identified means to reduce and control expenses, improving resource allocation by 20%.</li>
+                            <li>Designed the data pipeline architecture for a new product scaling to 100,000 daily active users.</li>
+                            <li>Led a team of two full-time employees and two contractors.</li>
+                        </ul>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-slate-800">
+                        <div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-slate-700"></div>
+                        <div class="flex flex-col md:flex-row md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Big Data Analyst</h3>
+                                <p class="text-neo-green mono font-bold">Growthsi, San Diego, CA</p>
+                            </div>
+                            <p class="text-slate-500 mono text-sm mt-1 md:mt-0">2016 – 2020</p>
+                        </div>
+                        <ul class="space-y-3 text-slate-400 list-disc list-inside">
+                            <li>Collected, cleansed, and analyzed structured/unstructured data resulting in $1M annual savings.</li>
+                            <li>Created impactful dashboards in Excel and Tableau for data reporting.</li>
+                            <li>Designed and built statistical analysis models that helped increase online sales up to 10% per product.</li>
+                        </ul>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-slate-800">
+                        <div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-slate-700"></div>
+                        <div class="flex flex-col md:flex-row md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Junior Data Analyst</h3>
+                                <p class="text-neo-green mono font-bold">Rofocus, New York, NY</p>
+                            </div>
+                            <p class="text-slate-500 mono text-sm mt-1 md:mt-0">2012 – 2016</p>
+                        </div>
+                        <ul class="space-y-3 text-slate-400 list-disc list-inside">
+                            <li>Assisted data scientists with analysis that increased sales performance by 20%.</li>
+                            <li>Spearheaded in-depth analysis of stockroom operations leading to a 15% decrease in operating costs.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-32 px-6 reveal">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-white mb-16 mono">&lt;projects /&gt;</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Project 1 -->
+                    <div class="group relative bg-dark-card rounded-3xl overflow-hidden neo-border">
+                        <div class="aspect-video bg-slate-800 flex items-center justify-center overflow-hidden">
+                            <div class="text-neo-green mono opacity-20 group-hover:opacity-40 transition-opacity">
+                                [ REAL_TIME_PIPELINE_DIAGRAM ]
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-2xl font-bold text-white">Real-time Data Ingestion</h3>
+                                <div class="flex space-x-2">
+                                    <span class="px-2 py-1 text-[10px] bg-neo-green/10 text-neo-green rounded mono">KAFKA</span>
+                                    <span class="px-2 py-1 text-[10px] bg-neo-green/10 text-neo-green rounded mono">SPARK</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-400 mb-6 leading-relaxed">
+                                Processed 5TB+ of monthly event data with sub-second latency for a fintech enterprise.
+                            </p>
+                            <a href="#" class="inline-flex items-center text-neo-green font-bold hover:gap-2 transition-all">
+                                VIEW ARCHITECTURE <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="group relative bg-dark-card rounded-3xl overflow-hidden neo-border">
+                        <div class="aspect-video bg-slate-800 flex items-center justify-center overflow-hidden">
+                            <div class="text-neo-green mono opacity-20 group-hover:opacity-40 transition-opacity">
+                                [ WAREHOUSE_SCHEMA_V2 ]
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-2xl font-bold text-white">Global Data Warehouse</h3>
+                                <div class="flex space-x-2">
+                                    <span class="px-2 py-1 text-[10px] bg-neo-green/10 text-neo-green rounded mono">BIGQUERY</span>
+                                    <span class="px-2 py-1 text-[10px] bg-neo-green/10 text-neo-green rounded mono">DBT</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-400 mb-6 leading-relaxed">
+                                Unified 20+ disparate data sources into a single source of truth using a hybrid star-schema.
+                            </p>
+                            <a href="#" class="inline-flex items-center text-neo-green font-bold hover:gap-2 transition-all">
+                                VIEW CASE STUDY <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="py-12 border-t border-slate-800 text-center mono text-xs tracking-widest">
+        &copy; 2026 DESIGNED_BY_DE_DEV. SYSTEM_READY.
+    </footer>
+
+    <script>
+        // Reveal Animations on Scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Initial check
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
